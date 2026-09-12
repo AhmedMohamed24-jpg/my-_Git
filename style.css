@@ -65,8 +65,8 @@ body {
 
 @media (max-width: 500px) {
     .top-btn {
-        bottom: 15px;
-        right: 15px;
+        bottom: 50px;
+        right: 50px;
     }
 }
 
