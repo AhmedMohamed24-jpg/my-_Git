@@ -1,0 +1,966 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+
+<body>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Mohamed - Portfolio</title>
+   
+    <link rel="stylesheet" href="style.css">
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        <i class="fa-solid fa-code"></i> Ahmed <span>Mohamed</span>
+    </div>
+    <button class="menu-toggle" aria-label="Open Menu">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+<div class="nav-actions">
+
+
+</div>
+
+    <button class="theme-toggle" aria-label="Toggle Light and Dark Mode">
+    <i class="fa-solid fa-sun"></i>
+</button>
+    <ul class="nav-links">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+   
+    <section class="hero">
+        
+        
+        <div class="hero-content">
+            <div class="greeting"><span>|</span> Hi, I'm</div>
+            <h1 class="name">Ahmed <span>Mohamed</span></h1>
+            <h2 class="title">Front-End Developer</h2>
+            <p class="desc">
+                I design and build clean, responsive websites with a focus<br>
+                on user experience and modern web technologies.<br>
+                Turning ideas into smooth and engaging digital experiences.
+            </p>
+            
+            <div class="buttons">
+                <a href="#projects" class="btn primary-btn">
+                    <i class="fa-solid fa-arrow-trend-up"></i> View My Work
+                </a>
+                <a href="./CV/Ahmed Mohamed_Gomaa_CV.pdf" class="btn secondary-btn">
+                    <i class="fa-solid fa-download"></i> Download CV
+                </a>
+            </div>
+
+            <div class="tech-stack">
+                <div class="tech-item"><i class="fa-brands fa-html5" style="color: #e34f26;"></i> HTML</div>
+                <div class="tech-item"><i class="fa-brands fa-css3-alt" style="color: #1572b6;"></i> CSS</div>
+                <div class="tech-item"><i class="fa-brands fa-js" style="color: #f7df1e;"></i> JavaScript</div>
+                <div class="tech-item"><i class="fa-brands fa-react" style="color: #61dafb;"></i> React</div>
+                <div class="tech-item"><i class="fa-brands fa-git-alt" style="color: #f05032;"></i> Git</div>
+            </div>
+        </div>
+
+        <div class="hero-image">
+           
+            <div class="badge">
+                <span class="dot"></span>
+                <div>
+                    <p class="badge-title">Front-End Developer</p>
+                    <p class="badge-loc">Based in Egypt</p>
+                </div>
+            </div>
+
+            
+            <div class="image-wrapper">
+                <div class="circle-1"></div>
+                <div class="circle-2"></div>
+                <div class="circle-line"></div>
+               
+                <img src="images/dekk.jpeg" alt="Ahmed Mohamed">
+            </div>
+
+         
+            <div class="dots dots-left"></div>
+            <div class="dots dots-right"></div>
+        </div>
+
+<div>
+
+<a href="#" class="top-btn" aria-label="Scroll to top">
+    <button>
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+</a>
+
+    
+</div>
+
+
+
+    </section>
+
+
+<script>
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+});
+
+
+
+
+const themeToggle = document.querySelector('.theme-toggle');
+const themeIcon = themeToggle.querySelector('i');
+
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+
+    if (document.body.classList.contains('light-mode')) {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    } else {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    }
+});
+</script>
+
+
+
+
+
+
+<section class="about-section" id="about">
+    <div class="about-container">
+        
+        <div class="about-image-col">
+            <div class="image-wrapper-about">
+           
+                <div class="floating-badge badge-top-left">
+                    <div class="badge-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div class="badge-info">
+                        <h4>Benha University</h4>
+                        <span>Faculty of Computers</span>
+                    </div>
+                </div>
+>
+                <div class="main-image-circle">
+                    <img src="images/ahmed55.png" alt="Ahmed Mohamed">
+                </div>
+
+                <div class="floating-badge badge-bottom-right">
+                    <div class="badge-icon">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <div class="badge-info">
+                        <h4>Front-End Developer</h4>
+                        <span><i class="fa-solid fa-location-dot"></i> Based in Egypt</span>
+                    </div>
+                </div>
+
+                <div class="decor-dots dots-top"></div>
+                <div class="decor-dots dots-bottom"></div>
+                <div class="circle-outline"></div>
+            </div>
+        </div>
+
+        <div class="about-text-col">
+            <div class="section-title">
+                <span class="vertical-line"></span> <h3>About Me</h3>
+            </div>
+            
+            <h2 class="main-heading">Who <span>I Am</span></h2>
+            
+            <p class="about-desc">
+                I am a passionate Front-End Developer and a student at the Faculty of Computers and Artificial Intelligence, Benha University. I enjoy turning ideas into interactive and user-friendly web experiences. I work with HTML, CSS, and JavaScript to build clean and efficient interfaces. I have experience in developing various projects, and I am always striving to improve my skills and reach a professional level in web development.
+            </p>
+            
+            <div class="info-cards">
+                <div class="card">
+                    <i class="fa-solid fa-code"></i>
+                    <h4>Web Development</h4>
+                    <p>HTML • CSS • JavaScript</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h4>Education</h4>
+                    <p>Benha University</p>
+                </div>
+                <div class="card">
+                    <i class="fa-regular fa-lightbulb"></i>
+                    <h4>Teamwork</h4>
+                    <p>Collaborative & Friendly</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <h4>Continuous Learning</h4>
+                    <p>Always Improving</p>
+                </div>
+            </div>
+
+            <div class="about-buttons">
+                <a href="#projects" class="btn-primary-solid">
+                    <i class="fa-solid fa-arrow-right"></i> View My Projects
+                </a>
+                <a href="./CV/Ahmed Mohamed_Gomaa_CV.pdf" class="btn-text-only">
+                    <i class="fa-solid fa-download"></i> Download CV
+                </a>
+            </div>
+        </div>
+        
+    </div>
+</section>
+   
+
+
+
+<section class="education-section" id="education">
+    
+    <div class="bg-glow edu-glow-left"></div>
+    <div class="bg-glow edu-glow-right"></div>
+    <div class="decor-dots-edu dots-top-left-edu"></div>
+    <div class="decor-dots-edu dots-bottom-right-edu"></div>
+
+    <div class="education-container">
+        
+        <div class="section-header">
+            <p class="subtitle"><span class="line"></span> MY EDUCATION & TRAINING <span class="line"></span></p>
+            <h2 class="title">Education & <span>Training</span></h2>
+            <p class="desc">
+                My academic background and professional training have equipped me with<br>
+                the knowledge and skills to build modern web experiences.
+            </p>
+        </div>
+
+        <div class="education-grid">
+            
+            <div class="edu-box">
+                <div class="box-header">
+                    <div class="box-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div class="box-title-area">
+                        <h3>Education</h3>
+                        <p>My Academic Journey</p>
+                    </div>
+                </div>
+                <div class="divider-line"></div>
+
+             <div class="edu-card">
+    <div class="card-logo">
+        <img src="images/imgi_265_FCI (1).png" alt="Benha University">
+    </div>
+    <div class="card-details">
+        <h4>Benha University</h4>
+        <p class="major">Faculty of Computers and Artificial Intelligence</p>
+        <p class="sub-major">Computer Science</p>
+        <div class="date-tag">
+            <i class="fa-regular fa-calendar"></i> 2024 – Present
+        </div>
+    </div>
+</div>
+            </div>
+
+            <div class="edu-box">
+                <div class="box-header">
+                    <div class="box-icon">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div class="box-title-area">
+                        <h3>Training</h3>
+                        <p>Professional Development</p>
+                    </div>
+                </div>
+                <div class="divider-line"></div>
+
+                <div class="edu-card training-card">
+                    <div class="card-logo training-logo">
+                        <img src="images/depi22222.webp" alt="DEPI">
+                    </div>
+                    <div class="card-details">
+                        <h4>Digital Egypt Pioneers Initiative (DEPI)</h4>
+                        <p class="major-train">React Frontend Web Developer Trainee | 2026</p>
+                        <ul class="train-list">
+                            <li>Completed 120+ hours of technical training in frontend and web development.</li>
+                            <li>Built interactive and responsive web interfaces using HTML5, CSS, JavaScript, Bootstrap, and React.</li>
+                            <li>Currently learning TypeScript, Node.js, Express, Docker, Kubernetes, and software development best practices.</li>
+                            <li>Practiced Git and GitHub for version control and project management.</li>
+                            <li>Studied UX/UI principles, code style and patterns, functional documentation, and unit testing.</li>
+                            <li>Developed practical experience through training modules and a capstone project.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="skills-section" id="skills">
+    
+    <div class="bg-glow skills-glow-left"></div>
+    <div class="bg-glow skills-glow-right"></div>
+    <div class="decor-dots-skills dots-top-left-skills"></div>
+    <div class="decor-dots-skills dots-bottom-right-skills"></div>
+
+    <div class="skills-container">
+        
+        <div class="section-header">
+            <p class="subtitle"><span class="line"></span> MY SKILLS <span class="line"></span></p>
+            <h2 class="title">Technical & <span>Professional</span> Skills</h2>
+            <p class="desc">
+                Here are the tools, technologies, and soft skills I use and develop<br>
+                to build modern and efficient web experiences.
+            </p>
+        </div>
+
+        <div class="skills-grid">
+            
+            <div class="skill-card">
+                <div class="skill-icon html-icon">
+                    <i class="fa-brands fa-html5"></i>
+                </div>
+                <h3>HTML</h3>
+                <p>Semantic and accessible markup for the web.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon css-icon">
+                    <i class="fa-brands fa-css3-alt"></i>
+                </div>
+                <h3>CSS</h3>
+                <p class="mod">Modern styling with Flexbox and Grid.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon js-icon">
+                    <i class="fa-brands fa-js"></i>
+                </div>
+                <h3>JavaScript</h3>
+                <p>Logic, interactivity and modern ES6+ features.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon react-icon">
+                    <i class="fa-brands fa-react"></i>
+                </div>
+                <h3>React</h3>
+                <p>Building dynamic and scalable user interfaces.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon bootstrap-icon">
+                    <i class="fa-brands fa-bootstrap"></i>
+                </div>
+                <h3>Bootstrap</h3>
+                <p>Responsive and beautiful UI components.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon tailwind-icon">
+                    <i class="fa-solid fa-wind"></i>
+                </div>
+                <h3>Tailwind CSS</h3>
+                <p>Utility-first CSS for faster development.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon git-icon">
+                    <i class="fa-brands fa-git-alt"></i>
+                </div>
+                <h3>Git</h3>
+                <p>Version control and collaboration.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon github-icon">
+                    <i class="fa-brands fa-github"></i>
+                </div>
+                <h3>GitHub</h3>
+                <p>Manage code, collaborate and track progress.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon vscode-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <h3>VS Code</h3>
+                <p>Powerful editor for better productivity.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon problem-icon">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <h3>Problem Solving</h3>
+                <p>Finding efficient solutions to real-world challenges.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon responsive-icon">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+                <h3>Responsive Design</h3>
+                <p>Creating great experiences on all devices.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon comm-icon">
+                    <i class="fa-solid fa-comments"></i>
+                </div>
+                <h3>Communication</h3>
+                <p>Clear, effective and team-oriented.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="services-section" id="services">
+    
+    <div class="services-glow-left"></div>
+    <div class="services-glow-right"></div>
+    <div class="decor-dots-top-left"></div>
+    <div class="decor-dots-bottom-right"></div>
+
+    <div class="services-container">
+        
+        <div class="services-header">
+            <p class="services-subtitle"><span class="line"></span> MY SERVICES <span class="line"></span></p>
+            <h2 class="services-title">What I <span>Offer</span></h2>
+            <p class="services-desc">
+                As a Front-End Developer, I provide high-quality web solutions<br>
+                that are modern, responsive, and user-friendly.
+            </p>
+        </div>
+
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <div class="service-top">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-desktop"></i>
+                    </div>
+                    <h3>Responsive Web Development</h3>
+                </div>
+                <p>Build websites that look great and work perfectly on all devices and screen sizes.</p>
+                <div class="card-glow-line"></div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-top">
+                    <div class="service-icon">
+                        <i class="fa-brands fa-react"></i>
+                    </div>
+                    <h3>UI Component Development</h3>
+                </div>
+                <p>Create reusable and scalable components using React and modern frontend technologies.</p>
+                <div class="card-glow-line"></div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-top">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3>Landing Page Development</h3>
+                </div>
+                <p>Design and develop fast, modern and conversion-focused landing pages.</p>
+                <div class="card-glow-line"></div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-top">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-paintbrush"></i>
+                    </div>
+                    <h3>UI/UX Implementation</h3>
+                </div>
+                <p>Turn designs into clean, interactive and pixel-perfect interfaces.</p>
+                <div class="card-glow-line"></div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-top">
+                    <div class="service-icon">
+                        <span class="ts-badge">TS</span>
+                    </div>
+                    <h3>TypeScript Integration</h3>
+                </div>
+                <p>Write clean, maintainable and scalable code with TypeScript.</p>
+                <div class="card-glow-line"></div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-top">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-gears"></i>
+                    </div>
+                    <h3>Performance Optimization</h3>
+                </div>
+                <p>Improve loading speed and ensure a smooth user experience across all devices.</p>
+                <div class="card-glow-line"></div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-top">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-code-branch"></i>
+                    </div>
+                    <h3>Version Control & GitHub</h3>
+                </div>
+                <p>Collaborate effectively and manage projects with Git and GitHub.</p>
+                <div class="card-glow-line"></div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-top">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Debugging & Problem Solving</h3>
+                </div>
+                <p>Find and fix issues efficiently with a focus on clean code and best practices.</p>
+                <div class="card-glow-line"></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="projects-section" id="projects">
+    
+    <div class="bg-glow glow-left"></div>
+    <div class="bg-glow glow-right"></div>
+    <div class="decor-dots-proj dots-left-proj"></div>
+    <div class="decor-dots-proj dots-right-proj"></div>
+
+    <div class="projects-container">
+        
+        <div class="section-header">
+            <p class="subtitle"><span class="line"></span> MY WORK <span class="line"></span></p>
+            <h2 class="title">P<span>rojects</span></h2>
+            <p class="desc">
+                Here are some of the projects I've worked on, showcasing my skills<br>
+                and passion for building modern web experiences.
+            </p>
+        </div>
+
+        <div class="projects-filters">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Web Apps</button>
+            <button class="filter-btn">UI/UX</button>
+            <button class="filter-btn">Full Stack</button>
+            <button class="filter-btn">Other</button>
+        </div>
+
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="card-image">
+                    <a href="index.html">
+                        <img src="images/POR1111111111111111.png" alt="Portfolio Website">
+                    </a>
+                </div>
+                <div class="card-content">
+                    <div class="category">
+                        <i class="fa-solid fa-desktop"></i> Personal Website
+                    </div>
+                    <h3>Portfolio Website</h3>
+                    <p>A fully responsive personal portfolio website built with HTML, CSS and JavaScript. It features smooth scrolling navigation, dynamically generated content section, and a clean, modern design.</p>
+                    <a href="index.html" class="view-btn">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> View Project &rarr;
+                    </a>
+                </div>
+            </div>
+
+<div class="project-card">
+                <div class="card-image">
+                    <a href="task10/index.html">
+                        <img src="images/HOME.png" alt="Home - Brandstore">
+                    </a>
+                </div>
+                <div class="card-content">
+                    <div class="category">
+                        <i class="fa-solid fa-laptop-code"></i> Web Application
+                    </div>
+                    <h3>Home - Brandstore</h3>
+                    <p>A fully responsive e-commerce website built with HTML and CSS. It features an elegant product catalog, showcases special offers and collections, with smooth scrolling and a modern, engaging design</p>
+                    <a href="task10/index.html" class="view-btn">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> View Project &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="card-image">
+                    <a href="task 4/index.html">
+                        <img src="task 4/imag/Screenshot 2026-04-18 162713.png" alt="Urban Bistro">
+                    </a>
+                </div>
+                <div class="card-content">
+                    <div class="category">
+                        <i class="fa-solid fa-laptop-code"></i> Web Application
+                    </div>
+                    <h3>Urban Bistro</h3>
+                    <p>A fully responsive restaurant website built with HTML and CSS. It features an elegant food menu, showcases special dishes and services, with smooth scrolling and a modern, appetizing design.</p>
+                    <a href="task 4/index.html" class="view-btn">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> View Project &rarr;
+                    </a>
+                </div>
+            </div>
+
+
+            
+            <div class="project-card">
+                <div class="card-image">
+                    <a href="task 6/index.html">
+                        <img src="images/task10.png" alt="Insurance Website">
+                    </a>
+                </div>
+                <div class="card-content">
+                    <div class="category ui-ux-cat">
+                        <i class="fa-solid fa-pen-nib"></i> Web Application
+                    </div>
+                    <h3>Insurance Website</h3>
+                    <p>A fully responsive insurance website built with HTML and CSS. It features a detailed services section, showcases professional agents and policies, with smooth scrolling and a modern, trustworthy design.</p>
+                    <a href="task 6/index.html" class="view-btn">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> View Project &rarr;
+                    </a>
+                </div>
+            </div>
+
+
+
+            <div class="project-card">
+                <div class="card-image">
+                    <a href="task 3/index.html">
+                        <img src="task 3/imgas/screen.png" alt="Movie Explorer">
+                    </a>
+                </div>
+                <div class="card-content">
+                    <div class="category ui-ux-cat">
+                        <i class="fa-solid fa-pen-nib"></i> UI/UX Project
+                    </div>
+                    <h3>Movie Explorer</h3>
+                    <p>A modern movie discovery website with a clean and interactive UI. It allows users to browse popular movies, view details, and explore different genres with a smooth and engaging experience.</p>
+                    <a href="task 3/index.html" class="view-btn">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> View Project &rarr;
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+            
+        </div>
+    </div>
+</section>
+
+<section class="testimonials-section" id="testimonials">
+    <div class="testi-glow-left"></div>
+    <div class="testi-glow-right"></div>
+    <div class="testi-dots dots-left"></div>
+    <div class="testi-dots dots-right"></div>
+    <div class="testi-ring ring-left"></div>
+    <div class="testi-ring ring-right"></div>
+
+    <div class="testimonials-container">
+        <div class="testi-header">
+            <p class="testi-subtitle">
+                <span class="line line-left"></span> TESTIMONIALS <span class="line line-right"></span>
+            </p>
+            <h2 class="testi-title">What People <span>Say</span></h2>
+            <p class="testi-desc">
+                Here are some kind words from people I've worked with,<br>
+                sharing their experience and feedback about my work.
+            </p>
+        </div>
+
+        <div class="testi-grid">
+            
+            <div class="testi-card">
+                <div class="client-header">
+                    <div class="client-img-wrapper">
+                        <img src="images/client1.jpg" alt=""> 
+                    </div>
+                    <div class="client-info">
+                        <h4 class="client-name">Omar Khaled</h4>
+                        <p class="client-role">Frontend Developer</p>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="client-review">
+                    "Ahmed was easy to work with and very responsive. He understood the requirements quickly and delivered clean, well-structured code. I appreciated his communication throughout the project."
+                </p>
+                <div class="card-glow-line"></div>
+            </div>
+
+            <div class="testi-card">
+                <div class="client-header">
+                    <div class="client-img-wrapper">
+                        <img src="images/client2.jpg" alt="">
+                    </div>
+                    <div class="client-info">
+                        <h4 class="client-name">Sara Mohamed</h4>
+                        <p class="client-role">UI/UX Designer</p>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="client-review">
+                    "I collaborated with Ahmed on a small web project, and he did a great job. He followed the design closely, was helpful with suggestions, and always met the deadlines. Would definitely work with him again."
+                </p>
+                <div class="card-glow-line"></div>
+            </div>
+
+            <div class="testi-card">
+                <div class="client-header">
+                    <div class="client-img-wrapper">
+                        <img src="images/client3.jpg" alt="">
+                    </div>
+                    <div class="client-info">
+                        <h4 class="client-name">Ahmed Hassan</h4>
+                        <p class="client-role">Project Manager</p>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="client-review">
+                    "Ahmed is a dedicated and hardworking developer. He has a solid understanding of front-end technologies and pays attention to details. The project was delivered on time and met our expectations."
+                </p>
+                <div class="card-glow-line"></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="contact-section" id="contact">
+    
+    <div class="contact-glow-left"></div>
+    <div class="contact-glow-right"></div>
+    <div class="decor-dots-contact-left"></div>
+    <div class="decor-dots-contact-right"></div>
+
+    <div class="contact-container">
+        
+        <div class="contact-header">
+            <p class="contact-subtitle"><span class="line"></span> GET IN TOUCH <span class="line"></span></p>
+            <h2 class="contact-title">Contact <span>Me</span></h2>
+            <p class="contact-desc">
+                I'm always open to new opportunities, collaborations, or just a friendly chat.<br>
+                Feel free to reach out — I'd love to hear from you!
+            </p>
+        </div>
+
+        <div class="contact-grid">
+            
+            <div class="contact-info-box">
+                <p class="box-tag"><span class="line"></span> Let's Talk</p>
+                <h3>Get In Touch</h3>
+                <p class="info-desc">Whether you have a project in mind, want to collaborate, or just want to say hello — I'm here and ready to help.</p>
+
+                <div class="contact-details-list">
+
+
+<div class="detail-item">
+    <div class="detail-icon email-icn">
+        <i class="fa-solid fa-envelope"></i>
+    </div>
+
+    <div class="detail-text">
+        <span>Email</span>
+
+        <a href="mailto:ahmedbinmohamed24@gmail.com">
+            <p>ahmedbinmohamed24@gmail.com</p>
+        </a>
+    </div>
+</div>
+
+                    <div class="detail-item">
+                        <div class="detail-icon phone-icn">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="detail-text">
+                            <span>Phone</span>
+                            <p>+20 1024599680</p>
+                        </div>
+                    </div>
+
+<div class="detail-item">
+    <div class="detail-icon whatsapp-icn">
+        <i class="fa-brands fa-whatsapp"></i>
+    </div>
+
+    <div class="detail-text">
+        <span>WhatsApp</span>
+
+        <a href="https://wa.me/201024599680" target="_blank">
+            <p>01024599680</p>
+        </a>
+    </div>
+</div>
+
+
+
+                    <div class="detail-item">
+                        <div class="detail-icon loc-icn">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="detail-text">
+                            <span>Location</span>
+                            <p>Faqous, Sharqia, Egypt</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    
+<div class="contact-form-box">
+    <form action="https://formspree.io/f/xaeykrzv" method="POST">
+
+        <div class="form-row">
+            <div class="input-group">
+                <i class="fa-regular fa-user"></i>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Full Name"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <i class="fa-regular fa-envelope"></i>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    required
+                >
+            </div>
+        </div>
+
+        <div class="input-group full-width">
+            <i class="fa-regular fa-comment"></i>
+            <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                required
+            >
+        </div>
+
+        <div class="input-group full-width">
+            <i class="fa-regular fa-message"></i>
+            <textarea
+                name="message"
+                placeholder="Message"
+                rows="5"
+                required
+            ></textarea>
+        </div>
+
+        <button type="submit" class="send-btn">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+        </button>
+
+    </form>
+</div>
+
+
+        </div>
+    </div>
+</section>
+
+<section class="footer-section">
+    <footer class="footer">
+        
+        <div class="footer-glow-line-left"></div>
+        <div class="footer-glow-line-right"></div>
+        <div class="decor-dots-foot left-dots"></div>
+        <div class="decor-dots-foot right-dots"></div>
+        <div class="corner-arc arc-left"></div>
+        <div class="corner-arc arc-right"></div>
+
+        <div class="lin">
+            <a href="https://www.linkedin.com/in/ahmed-mohamed-yzn2006?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">
+                <img class="linked" src="images/linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="https://www.facebook.com/share/1BucgbShQY/" target="_blank"> 
+                <img class="fac" src="images/fec.jpg" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/a7med_yzn?igsh=cWszZmxsYXAxMjB5" target="_blank">
+                <img class="insta" src="images/insta.jpeg" alt="Instagram">
+            </a>
+            <a href="https://github.com/AhmedMohamed24-jpg" target="_blank">
+                <img class="Git" src="images/git.png" alt="GitHub">
+            </a>
+        </div>
+
+        <div class="foot">
+            <p>© 2026 <span class="highlight-name">Ahmed Mohamed</span>. All rights reserved. Designed & Developed by <span class="highlight-name">Ahmed</span>.</p>
+        </div>
+
+    </footer>
+</section>
+
+</body>
+
+</html>

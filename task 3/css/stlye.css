@@ -1,0 +1,105 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box ;
+}
+
+body{
+    background-image: url("../imgas/space.png");
+    background-repeat:no-repeat ;
+    background-position: center;
+    background-size: cover;
+}
+
+.all
+{
+    width: 80%;
+    margin: 150px auto;
+}
+
+.card
+{
+    width: 30%;
+    height: 500px;
+    justify-content:space-between;
+    display: inline-block;
+        border-radius: 7%;
+        overflow: hidden;
+    position: relative;
+
+}
+
+
+
+
+img{
+    width: 100%;
+transition: 0.5s;
+
+}
+
+.card:hover img{
+    transform: scale(1.3);
+}
+.overLay{
+    position: absolute;
+background-color: rgba(0, 0, 0, 0.219);
+opacity: .5;
+color: white;
+top: 0;
+height: 100%;
+width: 100%;
+text-align: center;
+justify-content: center;
+font-weight:400;
+}
+.content h2{
+    text-align: center;
+        margin-top: -10px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+.content p{
+    text-align: center;
+}
+
+.bot{
+    width: 130px;
+    height: 40px;
+color: rgb(217, 209, 211);
+font-size: 20px;
+background-color: red;
+border-radius: 20px;
+transform: translateY(-80px);
+margin-top: 40px;
+transition:0.3s ;
+border-style: none;
+font-weight: 400;
+} 
+.overLay:hover.bot{ 
+  
+    transform: translateY(0);
+
+}
+.card:hover .bot{
+transform: translateY(0); 
+
+}
+.content{
+    transform: translateY(200px);
+margin-top: 300px;
+transition: 0.5s;
+}
+
+.card:hover .content{
+    margin-top: 200px;
+    transform: translateY(0);
+}
+
+.overLay{
+    opacity: 1;
+}
+.overLay:hover .content{
+    transform: translateY(0);
+}
