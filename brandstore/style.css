@@ -1,0 +1,698 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar Styling */
+nav {
+    background-color: rgb(24, 95, 139);
+    display: flex;
+    align-items: center;
+    min-height: 14vh;
+    padding: 20px 45px;
+}
+
+.icon {
+    margin-left: 3px;
+}
+
+.icon img {
+    width: 150px;
+}
+
+.nav-left {
+    display: flex;
+    gap: 30px;
+    margin-left: 3%;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.nav-right {
+    display: flex;
+    /* استخدمنا margin-left بدلاً من absolute عشان الكود يكون احترافي أكتر وميضربش */
+    margin-left: auto; 
+    gap: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+}
+
+.nav-left a, .nav-right a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Home Section */
+.home {
+    height: 100vh;
+}
+
+.background-img1 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 70, 100, 0.6), rgba(0, 70, 100, 0.6)), url("img/imgi_116_home-new-bg-free-img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.cont {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    padding: 10px;
+}
+
+.cont h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 70px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+}
+
+.cont p {
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.cont button {
+    width: 160px;
+    height: 50px;
+    margin-top: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+#button-1 {
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+#button-1:hover {
+    background-color: black;
+    color: white;
+}
+
+#button-2 {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    margin-left: 15px;
+}
+
+#button-2:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Fixed Elements */
+#Customize-1 {
+    position: fixed;
+    top: 35%;
+    right: -5px;
+    width: 130px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#Customize-1:hover {
+    color: rgba(0, 59, 186, 0.975);
+}
+
+.sala-1 {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: rgb(33, 119, 218);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* تظبيط رقم السلة بالـ Flexbox عشان يكون متوسط بالظبط (حركة مبرمج فاهم) */
+#zero-1 {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: rgb(18, 137, 60);
+    color: white;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive (Media Queries) */
+@media (max-width: 992px) {
+    .cont h1 { font-size: 50px; }
+    .nav-left, .nav-right { gap: 15px; font-size: 16px; }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 15px;
+        min-height: auto;
+    }
+    
+    .nav-left, .nav-right {
+        margin: 10px 0;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .cont {
+        top: 25%;
+        left: 5%;
+        width: 90%;
+        text-align: center;
+    }
+
+    .cont h1 { font-size: 40px; }
+    .cont p { font-size: 20px; }
+
+    .cont button {
+        width: 140px;
+        margin-top: 20px;
+    }
+
+    #Customize-1 { display: none; }
+}
+
+@media (max-width: 480px) {
+    .cont h1 { font-size: 32px; }
+    
+    .cont button {
+        width: 90%;
+        display: block;
+        margin: 15px auto;
+    }
+    
+    #button-2 { margin-left: auto; }
+}
+
+
+
+/* إعدادات عامة لتصفير المسافات */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.section-2 {
+  padding: 40px 5%; /* مسافات جانبية متجاوبة */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* تنسيق شريط اللوجوهات باستخدام Flexbox */
+.brands-bar {
+  margin-bottom: 50px;
+  padding: 20px 0;
+}
+
+.logos-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* للسماح بنزول اللوجوهات في الشاشات الصغيرة */
+  gap: 20px;
+}
+
+.logos-row .logo {
+  flex: 1 1 150px; /* لضمان تجاوب اللوجوهات */
+  text-align: center;
+}
+
+.logos-row img {
+  max-width: 100%;
+  height: auto;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.logos-row img:hover {
+  opacity: 1; /* تأثير بسيط عند تمرير الماوس على اللوجو */
+}
+
+/* 
+  تنسيق شبكة الكروت باستخدام CSS Grid
+  استخدام repeat(auto-fit, ...) يجعل الكروت تتجاوب تلقائياً بدون الحاجة لـ Media Queries كثيرة
+*/
+.promo-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* التنسيق الأساسي للكارت */
+.card {
+  position: relative;
+  height: 450px; /* ارتفاع الكارت */
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* لدفع المحتوى للأسفل */
+  background-size: cover;
+  background-position: center;
+}
+
+/* إضافة طبقة داكنة (Overlay) فوق صورة الخلفية ليظهر النص الأبيض بوضوح */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.1) 60%);
+  z-index: 1;
+}
+
+/* صور خلفيات الكروت (يمكنك تعديل مسارات الصور لتناسب مشروعك) */
+.card-1 {
+  background-image: url("./img/imgi_116_women-fashion-free-img.jpg"); 
+  background-color: #8b5a62; /* لون احتياطي */
+}
+.card-2 {
+  background-image: url("./img/imgi_117_men-fashion-free-img.jpg");
+  background-color: #2b5c77;
+}
+.card-3 {
+  background-image: url("./img/imgi_118_footwear-free-img.jpg");
+  background-color: #7b4b5e;
+}
+
+/* تنسيق المحتوى داخل الكارت */
+.card-content {
+  position: relative;
+  z-index: 2; /* لجعل النص فوق الطبقة الداكنة */
+  padding: 30px;
+  color: #fff;
+}
+
+.card-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+/* تنسيق الزرار */
+.card-content button {
+  padding: 12px 24px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease; /* انتقال ناعم للتأثير */
+}
+
+/* 
+  تأثير الـ Hover على الزرار (حسب طلبك)
+  يتحول لون الخلفية للأسود ولون الخط للأبيض
+*/
+.card-content button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* استجابة إضافية للشاشات الصغيرة جداً */
+@media (max-width: 480px) {
+  .logos-row {
+    justify-content: center;
+  }
+  .card {
+    height: 350px;
+  }
+}
+/* 
+@media (max-width: 700px) {
+  .brands-bar { flex-wrap: wrap; }
+  .card { flex-basis: 100%; }  /* كل كارت ياخد عرض الشاشة كامل على الموبايل */
+
+  
+
+
+
+
+
+/* 
+.women-fashion ,.men-fashion ,.footwear-free{
+
+width: 32%;
+height:500px;
+
+}
+
+
+.women-fashion {
+
+    background-image: url("./img/imgi_116_women-fashion-free-img.jpg");
+    background-size: contain;
+    background-position: center;
+background-repeat: no-repeat;
+    position: relative;
+
+    
+}
+
+
+.men-fashion {
+
+    background-image: url("./img/imgi_117_men-fashion-free-img.jpg");
+    background-size: contain;
+    background-position: center;
+background-repeat: no-repeat;
+    position: relative;
+
+    
+}
+
+
+.footwear-free {
+
+    background-image: url("./img/imgi_118_footwear-free-img.jpg");
+    background-size: contain;
+    background-position: center;
+background-repeat: no-repeat;
+    position: relative;
+
+    
+}
+
+
+
+
+
+
+
+ */
+
+
+
+.Featured{
+    display: flex;
+width: 95%;
+height: 50vh;
+position: absolute;
+top: 20%;
+
+}
+
+.sports-shoe3{
+
+    width:22%;
+}
+
+.sports-shoe3 img  {
+
+width:100%;
+
+}
+
+
+
+.products-section{
+  padding:60px 60px;
+  text-align:center;
+  
+  background:#F5F7F9;
+}
+.section-title{
+  font-size:36px;
+  font-weight:700;
+  color:#101828;
+  margin-bottom:14px;
+}
+.section-title::after{
+  content:"";
+  display:block;
+  width:90px;
+  height:3px;
+  background:#0084D6;
+  margin:14px auto 0 auto;
+}
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);   /* 5 أعمدة بالظبط زي الصورة */
+  gap:22px;
+  text-align:left;
+  max-width:1500px;
+  margin:0 auto;
+}
+.product-card{
+  display:flex;
+  flex-direction:column;
+  position:relative;
+}
+.product-card img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  background:#eeeeee;      /* لون خلفية صورة المنتج الحقيقي */
+  margin-bottom:16px;
+}
+.product-card h4{
+  font-size:16px;
+  font-weight:700;
+  color:#101828;
+  margin-bottom:6px;
+}
+.product-card .category{
+  font-size:13px;
+  color:#94969a;
+  margin-bottom:8px;
+}
+.product-card .price{
+  font-size:15px;
+  margin-bottom:10px;
+}
+.product-card .old-price{
+  text-decoration:line-through;
+  color:#c9cacc;font-weight:400;
+  margin-right:8px;
+}
+.product-card .new-price{
+  color:#101828;
+  font-weight:700;
+}
+.product-card .badge{
+  position:absolute;
+  top:14px; left:14px;
+  background:#ffffff;
+  color:#101828;
+  font-size:13px;
+  font-weight:600;
+  padding:6px 16px;
+  border-radius:20px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.12);
+}
+
+/* ريسيت بسيط عشان المسافات */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif; /* يفضل استخدام خطوط مناسبة */
+}
+
+.Special {
+  width: 100%;
+  background-color: #f7f7f7; /* لون خلفية الصفحة الفاتح زي الصورة */
+  padding: 40px 0 80px;
+}
+
+/* تنسيق البانر */
+.back11 {
+  width: 90%;
+  max-width: 1200px;
+  height: 60vh;
+  min-height: 450px;
+  margin: 0 auto;
+  background: url("./img/imgi_120_banner-03.jpg");
+  background-size: cover; /* عشان الصورة تغطي المساحة كلها بشكل متناسق */
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center; /* توسيط المحتوى بالطول */
+  padding-left: 5%; /* مسافة من الشمال للنص */
+}
+
+/* تنسيق الكلام جوه البانر */
+.banner-content {
+  width: 50%;
+  color: #ffffff;
+}
+
+.banner-content .subtitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.banner-content h2 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.banner-content .desc {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 90%;
+}
+
+.banner-content .discount-text {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.shop-btn {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  padding: 12px 28px;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.shop-btn:hover {
+  background-color: #e0e0e0;
+}
+
+
+.somp {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+  margin: 60px auto 0;
+  gap: 20px;
+}
+
+.feature-item {
+  flex: 1; 
+  text-align: center; 
+}
+
+.feature-item img {
+  width: 40px; 
+  margin-bottom: 15px;
+}
+
+.feature-item h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.feature-item p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+
+
+.site-footer {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 60px 0 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.footer-top {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+  padding-bottom: 40px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 200px; 
+  margin-bottom: 20px;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #000;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 15px;
+}
+
+.footer-col ul li a {
+  text-decoration: none; 
+  color: #4a4a4a;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #000; 
+}
+
+.app-link img {
+  width: 140px; 
+  cursor: pointer;
+}
+
+.footer-bottom {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  font-size: 14px;
+  color: #4a4a4a;
+}
+
+
+
