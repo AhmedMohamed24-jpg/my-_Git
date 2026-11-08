@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دكتور تقني - صيانة احترافية للابتوب</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo imge/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <!-- يضبط المظهر المحفوظ قبل ظهور الصفحة (يمنع الوميض) ويفعّل أنيميشن الظهور -->
+    <script>
+        document.documentElement.classList.add('js');
+        try {
+            document.documentElement.setAttribute('data-theme', localStorage.getItem('site-theme') || 'dark');
+            if (localStorage.getItem('site-lang') === 'en') {
+                document.documentElement.setAttribute('lang', 'en');
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+        } catch (e) {}
+    </script>
+</head>
+<body>
+
+    <!-- ========== شريط التنقل ========== -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <img src="logo imge/logo.png" alt="دكتور تقني" class="logo-img">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home" class="active">الرئيسية</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#pricing">الباقات</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#reviews">آراء العملاء</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button id="langToggleBtn" class="lang-btn" type="button" aria-label="Switch to English">EN</button>
+                <button id="themeToggleBtn" class="theme-btn" aria-label="تبديل المظهر">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
+                </button>
+                <a href="#contact" class="btn-primary-outline">احجز الآن</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="القائمة">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== الهيرو ========== -->
+    <section class="hero-section" id="home">
+        <div class="glow-bg top-right"></div>
+        <div class="glow-bg bottom-left"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="badge-blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    فحص مجاني للجهاز
+                </div>
+                <h1 class="hero-title">
+                    <span class="text-gold">دكتور</span> لابتوبك.. صيانة<br>
+                    <span class="text-cyan">احترافية</span> تعيد جهازك!
+                </h1>
+                <p class="hero-desc">
+                    حلول شاملة وسريعة لصيانة الهاردوير، ترقية الـ SSD والـ RAM، وحل مشاكل السوفتوير بضمان حقيقي.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        احجز صيانتك الآن
+                    </a>
+                    <a href="#services" class="btn-secondary">تصفّح خدماتنا</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item"><span class="stat-num">30</span><span class="stat-text">يوم ضمان</span></div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item"><span class="stat-num">+8</span><span class="stat-text">سنوات خبرة</span></div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item"><span class="stat-num">+5000</span><span class="stat-text">جهاز تم إصلاحه</span></div>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="logo imge/360_F_688738147_tDWPeqOovKoiAKXa3CGi9rif4KNzIDVq.jpg" alt="صيانة لابتوب" class="main-laptop">
+                <div class="glass-card float-card-1">
+                    <div class="icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"></path></svg></div>
+                    <span>تم الإصلاح ✓</span>
+                </div>
+                <div class="glass-card float-card-2">
+                    <div class="icon-zap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                    <div class="card-text"><strong>أداء أسرع ⚡</strong><small>جاهز لشغلك من جديد</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== الخدمات ========== -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-blue">حلول متكاملة لجهازك</span>
+                <h2 class="section-title">خدماتنا <span class="text-gold">الاحترافية</span></h2>
+                <p class="section-desc">نقدم لك كل ما يحتاجه لابتوبك ليعود للعمل بأفضل أداء، مع ضمان الجودة والسرعة.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card popular-service">
+                    <div class="popular-badge">الأكثر طلباً</div>
+                    <div class="service-icon icon-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.3 4.3c.4-1.7 2.9-1.7 3.3 0 1.5-.9 3.3.8 2.4 2.4 1.7.4 1.7 2.9 0 3.3.9 1.5-.8 3.3-2.4 2.4-.4 1.7-2.9 1.7-3.3 0-1.5.9-3.3-.8-2.4-2.4-1.7-.4-1.7-2.9 0-3.3-.9-1.5.8-3.3 2.4-2.4.9.6 2.2.1 2.5-1.1zM15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
+                    <h3>صيانة الهاردوير</h3>
+                    <p>تشخيص دقيق وإصلاح شامل لأعطال البوردة والقطع الداخلية باحترافية.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg></div>
+                    <h3>تثبيت الويندوز والبرامج</h3>
+                    <p>تنزيل نسخ أصلية وتعاريف كاملة، ليكون جهازك جاهزاً للعمل.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.6-4A12 12 0 0112 3a12 12 0 01-8.6 3A12 12 0 003 9c0 5.6 3.8 10.3 9 11.6 5.2-1.3 9-6 9-11.6 0-1-.1-2-.4-3z"></path></svg></div>
+                    <h3>إزالة الفيروسات</h3>
+                    <p>تنظيف شامل وحماية بياناتك من البرمجيات الخبيثة بأمان.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                    <h3>تحسين أداء الجهاز</h3>
+                    <p>حلول متكاملة لمشكلة البطء والتهنيج والسخونة.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg></div>
+                    <h3>ترقية RAM و SSD</h3>
+                    <p>زيادة سرعة الإقلاع والأداء للضعف بخطوات بسيطة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== الباقات ========== -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-blue">خطط الأسعار</span>
+                <h2 class="section-title">باقات <span class="text-gold">الصيانة</span></h2>
+                <p class="section-desc">اختر الباقة المناسبة لجهازك ووفر مع باقاتنا المتكاملة.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="package-name">الباقة الأساسية</h3>
+                    <div class="package-price"><span class="currency">ج.م</span><span class="amount">150</span></div>
+                    <p class="package-desc">الحل السريع للمشاكل البسيطة وإعادة ضبط المصنع.</p>
+                    <ul class="package-features">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"></path></svg> تنزيل نسخة ويندوز</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"></path></svg> عمل فورمات كامل</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"></path></svg> تعريفات أساسية للجهاز</li>
+                    </ul>
+                    <a href="#contact" class="btn-outline-blue select-package-btn" data-package="باقة150">اختار الباقة</a>
+                </div>
+                <div class="pricing-card popular-package">
+                    <div class="popular-badge">الأكثر طلباً</div>
+                    <h3 class="package-name text-gold">الباقة الاحترافية</h3>
+                    <div class="package-price"><span class="currency">ج.م</span><span class="amount text-gold">250</span></div>
+                    <p class="package-desc">باقة التوازن المثالية للحفاظ على أداء الجهاز ومنع السخونية.</p>
+                    <ul class="package-features">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"></path></svg> فحص شامل للحرارة</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"></path></svg> تغيير معجون حراري</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"></path></svg> تنزيل نسخة ويندوز وتعاريف</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary select-package-btn" data-package="باقة250">احجز الباقة الآن</a>
+                </div>
+                <div class="pricing-card">
+                    <h3 class="package-name">الباقة المتكاملة</h3>
+                    <div class="package-price"><span class="currency">ج.م</span><span class="amount">350</span></div>
+                    <p class="package-desc">صيانة VIP شاملة تعيد اللابتوب كالجديد من الداخل والخارج.</p>
+                    <ul class="package-features">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"></path></svg> صيانة كاملة وشاملة</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"></path></svg> تنظيف الجهاز كاملاً</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"></path></svg> فحص شامل + ويندوز</li>
+                    </ul>
+                    <a href="#contact" class="btn-outline-blue select-package-btn" data-package="باقة350">اختار الباقة</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== من نحن ========== -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-image-wrapper">
+                    <div class="glow-bg-about"></div>
+                    <img src="logo imge/developing-programmer-team-development-website-design-and-coding-technologies-working-in.webp" alt="فريق صيانة دكتور تقني" class="about-img">
+                    <div class="experience-glass-badge">
+                        <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.6-4A12 12 0 0112 3a12 12 0 01-8.6 3A12 12 0 003 9c0 5.6 3.8 10.3 9 11.6 5.2-1.3 9-6 9-11.6 0-1-.1-2-.4-3z"></path></svg></div>
+                        <div class="badge-content"><span class="num text-gold">+8</span><span class="text">سنوات خبرة</span></div>
+                    </div>
+                </div>
+                <div class="about-text-content">
+                    <span class="badge-blue">من نحن</span>
+                    <h2 class="section-title">خبراء في إعطاء لابتوبك <span class="text-gold">عمراً جديداً</span></h2>
+                    <p class="section-desc about-desc">
+                        في "دكتور تقني"، هدفنا الأول هو راحة بالك وعودة جهازك لأفضل أداء. نتعامل مع كل لابتوب كأنه جهازنا الشخصي، لضمان أعلى جودة بأفضل سعر.
+                    </p>
+                    <ul class="about-points">
+                        <li><div class="point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"></path></svg></div><p><strong>فنيين معتمدين:</strong> خبرة في أعقد أعطال البوردة والهاردوير.</p></li>
+                        <li><div class="point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"></path></svg></div><p><strong>أسعارنا عادلة:</strong> تسعير واضح وشفاف قبل البدء بدون أي مفاجآت.</p></li>
+                        <li><div class="point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"></path></svg></div><p><strong>أكثر من 8 سنوات خبرة:</strong> ثقة آلاف العملاء هي رأس مالنا.</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== آراء العملاء ========== -->
+    <section class="reviews-section" id="reviews">
+        <div class="container">
+            <div class="reviews-header">
+                <div class="reviews-title-wrapper">
+                    <span class="badge-blue">آراء وتجارب</span>
+                    <h2 class="section-title">ماذا يقول <span class="text-gold">عملاؤنا؟</span></h2>
+                    <p class="section-desc">ثقة آلاف العملاء هي الرصيد الحقيقي لنجاحنا المستمر.</p>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prevReview" aria-label="السابق">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                    <button class="slider-btn" id="nextReview" aria-label="التالي">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="reviews-slider" id="reviewsSlider">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"خدمة ممتازة وسريعة جداً. كان اللابتوب بيفصل حرارة، رجع أحسن من الأول، وأسعارهم واضحة جداً."</p>
+                    <div class="client-info"><div class="client-avatar">أ</div><div><h4 class="client-name">أحمد محمود</h4><span class="client-service">باقة الفحص</span></div></div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"مهندسين فاهمين شغلهم صح. غيرت رامات وهارد SSD، الجهاز بقى طلقة ما شاء الله. شكراً دكتور تقني."</p>
+                    <div class="client-info"><div class="client-avatar">م</div><div><h4 class="client-name">مصطفى جمال</h4><span class="client-service">ترقية RAM</span></div></div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"أكتر حاجة عجبتني هي الشفافية، بيشرحلك العطل والتكلفة قبل ما يمد إيده. بصراحة ثقة وأنصح بيهم."</p>
+                    <div class="client-info"><div class="client-avatar">س</div><div><h4 class="client-name">محمد سعيد</h4><span class="client-service">صيانة هاردوير</span></div></div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"تعامل محترم جداً وسرعة في إنجاز الصيانة. استلمت اللابتوب في نفس اليوم وبشغل عالي الجودة."</p>
+                    <div class="client-info"><div class="client-avatar">ع</div><div><h4 class="client-name">عمر عبد الله</h4><span class="client-service">تثبيت ويندوز وبرامج</span></div></div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"أفضل مركز صيانة تعاملت معه، أسعارهم مناسبة جداً مقارنة بالجودة والضمان الحقيقي اللي بيقدموه."</p>
+                    <div class="client-info"><div class="client-avatar">خ</div><div><h4 class="client-name">خالد إبراهيم</h4><span class="client-service">الباقة المتكاملة</span></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== تواصل معنا ========== -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-blue">أول خطوة لجهاز أفضل</span>
+                <h2 class="section-title">تواصل <span class="text-gold">معنا</span></h2>
+                <p class="section-desc">احكي لنا عن جهازك، وإحنا نهتم بالباقي.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-form-box">
+                    <div class="form-header">
+                        <h3>احجز صيانتك الآن</h3>
+                        <p>سيب بياناتك ووصف العطل، وهنرجع لك لتأكيد التفاصيل.</p>
+                    </div>
+                    <form id="bookingForm" class="booking-form" action="https://formspree.io/f/mrppvlow" method="POST" novalidate>
+                        <div class="form-group">
+                            <label for="clientName">الاسم</label>
+                            <input type="text" id="clientName" name="name" placeholder="اكتب اسمك بالكامل" autocomplete="name" required>
+                            <small class="field-error">من فضلك اكتب اسمك (حرفين على الأقل).</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientPhone">رقم الهاتف</label>
+                            <input type="tel" id="clientPhone" name="phone" class="ltr-input" placeholder="01XXXXXXXXX" inputmode="numeric" maxlength="16" autocomplete="tel" required>
+                            <small class="field-error">اكتب رقم موبايل مصري صحيح، مثال: 01012345678</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="serviceType">نوع الخدمة</label>
+                            <div class="select-wrapper">
+                                <select id="serviceType" name="service" required>
+                                    <option value="" disabled selected>اختر نوع الخدمة</option>
+                                    <option value="صيانة هاردوير">صيانة هاردوير</option>
+                                    <option value="باقة150">باقة 150</option>
+                                    <option value="باقة250">باقة 250</option>
+                                    <option value="باقة350">باقة 350</option>
+                                </select>
+                                <svg class="select-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <small class="field-error">من فضلك اختر نوع الخدمة.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientMessage">رسالتك</label>
+                            <textarea id="clientMessage" name="message" placeholder="احكي لنا عن مشكلة جهازك..." required></textarea>
+                            <small class="field-error">من فضلك اكتب وصف المشكلة.</small>
+                        </div>
+                        <button type="submit" class="btn-submit" id="submitBookingBtn">إرسال الطلب</button>
+                        <p class="form-status" id="formStatus" role="alert" aria-live="polite"></p>
+                    </form>
+                </div>
+                <div class="contact-info-box">
+                    <div class="info-header">
+                        <h3>خلّينا نرجّع جهازك للحياة</h3>
+                        <p>عندك سؤال قبل الحجز؟ تواصل معانا بالطريقة اللي تريحك.</p>
+                    </div>
+                    <div class="contact-methods">
+                        <a href="tel:+201505825743" class="method-item">
+                            <div class="method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></div>
+                            <div class="method-text"><h4>الهاتف</h4><span>01505825743</span></div>
+                        </a>
+                        <a href="https://wa.me/201505825743" target="_blank" rel="noopener" class="method-item">
+                            <div class="method-icon whatsapp-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></div>
+                            <div class="method-text"><h4>واتساب</h4><span>01505825743</span></div>
+                        </a>
+                        <a href="mailto:mohamed47231555@gmail.com" class="method-item">
+                            <div class="method-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l9 6 9-6M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"></path></svg></div>
+                            <div class="method-text"><h4>البريد الإلكتروني</h4><span>mohamed47231555@gmail.com</span></div>
+                        </a>
+                        <a href="https://www.facebook.com/share/1DziazWNKK/" target="_blank" rel="noopener" class="method-item">
+                            <div class="method-icon facebook-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+                            <div class="method-text"><h4>فيسبوك</h4><span>صفحتنا على فيسبوك</span></div>
+                        </a>
+                        <a href="https://t.me/mohamed_elsayed_me" target="_blank" rel="noopener" class="method-item">
+                            <div class="method-icon telegram-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></div>
+                            <div class="method-text"><h4>تليجرام</h4><span>@mohamed_elsayed_me</span></div>
+                        </a>
+                    </div>
+                    <div class="map-wrapper">
+                        <iframe class="dark-map" title="موقع المركز" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109159.2275218768!2d31.70420786523992!3d30.73024888265005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f7b60e22709db1%3A0xc3f345eb6abf3bb8!2z2YHYp9mC2YjYs9CMINmF2LHQutiyINmB2KfZgtmI2LPYjCDYp9mE2LTYsdmC2YrYqQ!5e0!3m2!1sar!2seg!4v1700000000000!5m2!1sar!2seg" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
+                        <div class="map-overlay-text">موقع المركز على الخريطة</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== التذييل ========== -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col about-col">
+                    <a href="#home" class="footer-logo"><img src="logo imge/logo.png" alt="دكتور تقني" class="logo-img footer-logo-img"></a>
+                    <p class="footer-desc">صيانة لابتوب بخبرة واهتمام. من التشخيص للتسليم، معاك خطوة بخطوة.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1DziazWNKK/" target="_blank" rel="noopener" class="social-btn facebook-icon" aria-label="فيسبوك"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a href="https://t.me/mohamed_elsayed_me" target="_blank" rel="noopener" class="social-btn telegram-icon" aria-label="تليجرام"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+                        <a href="https://wa.me/201505825743" target="_blank" rel="noopener" class="social-btn whatsapp-icon" aria-label="واتساب"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
+                        <a href="mailto:mohamed47231555@gmail.com" class="social-btn mail-icon" aria-label="البريد الإلكتروني"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l9 6 9-6M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"></path></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li><li><a href="#services">خدماتنا</a></li>
+                        <li><a href="#pricing">الباقات</a></li><li><a href="#about">من نحن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>خدماتنا</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">صيانة الهاردوير</a></li><li><a href="#services">تثبيت الويندوز</a></li>
+                        <li><a href="#services">ترقية RAM و SSD</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> دكتور تقني - جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== الأزرار العائمة ========== -->
+    <div class="floating-actions">
+        <a href="https://wa.me/201505825743" target="_blank" rel="noopener" class="float-btn float-whatsapp" aria-label="تواصل واتساب">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        </a>
+        <button id="scrollTopBtn" class="float-btn float-up" aria-label="أعلى الصفحة">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 15l7-7 7 7"></path></svg>
+        </button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

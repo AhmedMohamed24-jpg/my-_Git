@@ -1,0 +1,2051 @@
+/* ========================================================== */
+/* 1. المتغيرات العامة (Light & Dark Modes)                    */
+/* ========================================================== */
+
+/* المتغيرات الأساسية: ألوان الوضع الداكن (الافتراضي) والظلال والتوهج */
+:root {
+    --bg-main: #0b1120;
+    --bg-sec: #080f1e;
+    --bg-footer: #050b14;
+    --text-main: #ffffff;
+    --text-muted: #94a3b8;
+    --primary-blue: #1d4ed8;
+    --primary-cyan: #38bdf8;
+    --primary-gold: #f59e0b;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --nav-bg: rgba(11, 17, 32, 0.92);
+    --map-filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(85%);
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --glow-opacity: 0.18;
+    color-scheme: dark;
+}
+
+/* قيم المتغيرات في الوضع الفاتح (Light Mode) */
+[data-theme="light"] {
+    --bg-main: #f8fafc;
+    --bg-sec: #f1f5f9;
+    --bg-footer: #e2e8f0;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --primary-blue: #2563eb;
+    --primary-cyan: #0284c7;
+    --primary-gold: #d97706;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --nav-bg: rgba(248, 250, 252, 0.95);
+    --map-filter: none;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --glow-opacity: 0.12;
+    color-scheme: light;
+}
+
+/* ========================================================== */
+/* 2. الإعدادات الأساسية (Reset & Global)                      */
+/* ========================================================== */
+
+/* تصفير الهوامش والحشو وتوحيد الخط على كل العناصر */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+}
+
+/* تمرير ناعم للروابط + مسافة علوية علشان الناف بار الثابت ما يغطيش العناوين */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+/* خلفية الصفحة ولون النص الأساسي وانتقال ناعم بين الوضعين */
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.6;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+/* الصور ما تخرجش عن حدود الحاوية بتاعتها */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* الأيقونات ما تتضغطش جوه عناصر الـ flex */
+svg {
+    flex-shrink: 0;
+}
+
+/* الحاوية الرئيسية: أقصى عرض 1200px وتتوسط الصفحة */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* نص بلون ذهبي */
+.text-gold {
+    color: var(--primary-gold);
+}
+
+/* نص بلون سماوي */
+.text-cyan {
+    color: var(--primary-cyan);
+}
+
+/* إطار واضح حوالين العناصر عند التنقل بالكيبورد (Accessibility) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--primary-cyan);
+    outline-offset: 3px;
+}
+
+/* ========================================================== */
+/* 3. تأثير الظهور من الأسفل لأعلى (Scroll Reveal)             */
+/*    يعمل فقط لو الجافا سكريبت اشتغل (class "js" على html)   */
+/*    نستخدم خاصية translate بدل transform علشان ما تتعارضش   */
+/*    مع تأثيرات الـ hover والـ scale الموجودة في العناصر     */
+/* ========================================================== */
+
+/* الحالة الابتدائية لتأثير الظهور: مخفي ومنزاح لتحت 40px (بيشتغل بس لو الجافا سكريبت شغال) */
+.js .reveal {
+    opacity: 0;
+    translate: 0 40px;
+    transition:
+        opacity 0.7s ease-out var(--d, 0s),
+        translate 0.7s ease-out var(--d, 0s),
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+    will-change: opacity, translate;
+}
+
+/* الحالة النهائية للتأثير: العنصر ظاهر في مكانه الطبيعي */
+.js .reveal.active {
+    opacity: 1;
+    translate: 0 0;
+}
+
+/* ========================================================== */
+/* 4. الأيقونات (SVG Sizes)                                    */
+/* ========================================================== */
+
+/* حجم أيقونة الشارة الصغيرة */
+.badge-blue svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* حجم أيقونة جوه الزر الأساسي */
+.btn-primary svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* أيقونة زر المظهر وزر القائمة تملا مساحة الزر */
+.theme-btn svg,
+.mobile-menu-btn svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* حجم أيقونات الكروت العايمة في الهيرو */
+.icon-check svg,
+.icon-zap svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* حجم أيقونة كارت الخدمة */
+.service-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+/* حجم علامة الصح في مميزات الباقة */
+.package-features svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* حجم أيقونة شارة سنين الخبرة */
+.badge-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* حجم علامة الصح في نقاط "من نحن" */
+.point-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* حجم أسهم سلايدر الآراء */
+.slider-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* حجم أيقونات وسائل التواصل */
+.method-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* منع مسافة زيادة تحت الأيقونة في الأزرار العايمة */
+.float-btn svg {
+    display: block;
+}
+
+/* ========================================================== */
+/* 5. الأزرار (Buttons)                                        */
+/* ========================================================== */
+
+/* الزر الأساسي: أزرق مصمت */
+.btn-primary {
+    background: var(--primary-blue);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+}
+
+/* الزر الأساسي عند المرور بالماوس: يتحول لسماوي ويرتفع شوية */
+.btn-primary:hover {
+    background: var(--primary-cyan);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3);
+}
+
+/* الزر الثانوي: خلفية شفافة بحدود */
+.btn-secondary {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* الزر الثانوي عند المرور: حدود سماوية */
+.btn-secondary:hover {
+    border-color: var(--primary-cyan);
+    background: var(--glass-border);
+}
+
+/* زر "احجز الآن" في الناف بار: حدود سماوية */
+.btn-primary-outline {
+    border: 1px solid var(--primary-cyan);
+    color: var(--primary-cyan);
+    padding: 8px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* زر "احجز الآن" عند المرور: يتملي بالسماوي */
+.btn-primary-outline:hover {
+    background: var(--primary-cyan);
+    color: #fff;
+}
+
+/* زر اختيار الباقات العادية: حدود زرقاء */
+.btn-outline-blue {
+    display: block;
+    border: 1px solid var(--primary-blue);
+    color: var(--text-main);
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+/* زر الباقات عند المرور: يتملي بالأزرق */
+.btn-outline-blue:hover {
+    background: var(--primary-blue);
+    color: #fff;
+}
+
+/* زر الباقة المميزة بعرض الكارت كله */
+.pricing-card .btn-primary {
+    width: 100%;
+}
+
+/* ========================================================== */
+/* 6. عناوين الأقسام (Section Headers)                         */
+/* ========================================================== */
+
+/* حاوية عنوان القسم (الشارة + العنوان + الوصف) في المنتصف */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* الشارة الصغيرة اللي فوق عناوين الأقسام */
+.badge-blue {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--primary-cyan);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* عنوان القسم الكبير */
+.section-title {
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.3;
+    margin: 15px 0;
+    color: var(--text-main);
+}
+
+/* الوصف اللي تحت عنوان القسم */
+.section-desc {
+    color: var(--text-muted);
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ========================================================== */
+/* 7. شريط التنقل (Navbar)                                     */
+/* ========================================================== */
+
+/* الناف بار: ثابت فوق الصفحة وشفاف في الأول */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: 0.3s;
+    background-color: transparent;
+}
+
+/* الناف بار بعد النزول بالسكرول: خلفية وحدود وتغبيش */
+.navbar.scrolled {
+    background-color: var(--nav-bg);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+}
+
+/* ترتيب اللوجو والقائمة والأزرار في صف واحد */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+/* رابط اللوجو بدون خط تحته */
+.logo {
+    text-decoration: none;
+}
+
+/* صورة اللوجو: صغيرة بحواف دايرية وظل خفيف */
+.logo-img {
+    height: 46px;
+    width: auto;
+    border-radius: 12px;
+    display: block;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+
+/* نص اسم الموقع (احتياطي لو اللوجو اتشال) */
+.logo-text {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--text-main);
+}
+
+/* قائمة روابط التنقل في سطر واحد */
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+/* شكل رابط التنقل العادي */
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+/* رابط التنقل النشط أو عند المرور: لون ذهبي */
+.nav-links a.active,
+.nav-links a:hover {
+    color: var(--primary-gold);
+}
+
+/* مجموعة الأزرار على الجانب (اللغة + المظهر + احجز + القائمة) */
+.nav-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* زر قائمة الموبايل (مخفي على الشاشات الكبيرة) */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-main);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* زر تبديل اللغة (عربي / English) */
+.lang-btn {
+    background: none;
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 5px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+/* زر اللغة عند المرور: حدود ونص سماوي */
+.lang-btn:hover {
+    border-color: var(--primary-cyan);
+    color: var(--primary-cyan);
+}
+
+/* زر تبديل الوضع (فاتح / داكن) */
+.theme-btn {
+    background: none;
+    border: none;
+    color: var(--text-main);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+}
+
+/* في الوضع الداكن: نعرض أيقونة الشمس */
+[data-theme="dark"] .sun-icon {
+    display: block;
+}
+
+/* في الوضع الداكن: نخفي أيقونة القمر */
+[data-theme="dark"] .moon-icon {
+    display: none;
+}
+
+/* في الوضع الفاتح: نخفي أيقونة الشمس */
+[data-theme="light"] .sun-icon {
+    display: none;
+}
+
+/* في الوضع الفاتح: نعرض أيقونة القمر */
+[data-theme="light"] .moon-icon {
+    display: block;
+}
+
+/* ========================================================== */
+/* 8. قسم الهيرو (Hero)                                        */
+/* ========================================================== */
+
+/* قسم الهيرو: بطول الشاشة كلها والمحتوى في النص */
+.hero-section {
+    padding: 160px 0 100px;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* تقسيم الهيرو لعمودين: النص والصورة */
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+/* مسافة تحت شارة "فحص مجاني" في الهيرو */
+.hero-content .badge-blue {
+    margin-bottom: 20px;
+}
+
+/* العنوان الرئيسي في الهيرو */
+.hero-title {
+    font-size: 50px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+/* الوصف تحت العنوان الرئيسي */
+.hero-desc {
+    color: var(--text-muted);
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* صف أزرار الهيرو (بتنزل سطر جديد لو المساحة ضيقة) */
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+/* أزرار الهيرو بحجم أصغر ومتناسب مع المكان */
+.hero-buttons .btn-primary,
+.hero-buttons .btn-secondary {
+    padding: 9px 20px;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+/* أيقونة زر الحجز في الهيرو أصغر */
+.hero-buttons .btn-primary svg {
+    width: 15px;
+    height: 15px;
+}
+
+/* صندوق الإحصائيات (ضمان / خبرة / أجهزة) */
+.hero-stats {
+    display: flex;
+    gap: 30px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 20px;
+    border-radius: 16px;
+    width: fit-content;
+}
+
+/* الرقم الكبير في الإحصائية */
+.stat-num {
+    display: block;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--text-main);
+}
+
+/* النص الصغير تحت الرقم */
+.stat-text {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* الخط الفاصل بين الإحصائيات */
+.stat-divider {
+    width: 1px;
+    background: var(--glass-border);
+}
+
+/* حاوية صورة الهيرو مع حركة الطفو */
+.hero-image-wrapper {
+    position: relative;
+    animation: floatImg 6s ease-in-out infinite;
+}
+
+/* صورة اللابتوب الرئيسية */
+.main-laptop {
+    width: 100%;
+    border-radius: 16px;
+}
+
+/* الكارت الزجاجي العايم فوق صورة الهيرو */
+.glass-card {
+    position: absolute;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    padding: 12px 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-main);
+    box-shadow: var(--card-shadow);
+    font-size: 14px;
+}
+
+/* النص الصغير جوه الكارت الزجاجي */
+.glass-card small {
+    display: block;
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+/* مكان كارت "تم الإصلاح" (فوق جنب) */
+.float-card-1 {
+    top: 10%;
+    right: -20px;
+}
+
+/* مكان كارت "أداء أسرع" (تحت جنب) */
+.float-card-2 {
+    bottom: 10%;
+    left: -20px;
+}
+
+/* دايرة أيقونة الكارت العايم (أخضر) */
+.icon-check,
+.icon-zap {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    flex-shrink: 0;
+}
+
+/* أيقونة البرق: لون ذهبي وشكل مربع بحواف دايرية */
+.icon-zap {
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--primary-gold);
+    border-radius: 8px;
+}
+
+/* دايرة توهج ضبابية في خلفية الهيرو */
+.glow-bg {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: var(--glow-opacity);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* توهج سماوي في الركن العلوي */
+.glow-bg.top-right {
+    top: -120px;
+    right: -120px;
+    background: var(--primary-cyan);
+}
+
+/* توهج ذهبي في الركن السفلي */
+.glow-bg.bottom-left {
+    bottom: -120px;
+    left: -120px;
+    background: var(--primary-gold);
+}
+
+/* ========================================================== */
+/* 9. قسم الخدمات (Services)                                   */
+/* ========================================================== */
+
+/* قسم الخدمات */
+.services-section {
+    padding: 100px 0;
+    background-color: var(--bg-sec);
+}
+
+/* شبكة كروت الخدمات (بتتوزع تلقائي حسب عرض الشاشة) */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 30px;
+}
+
+/* كارت الخدمة */
+.service-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* كارت الخدمة عند المرور: يرتفع وحدوده سماوية */
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-cyan);
+    box-shadow: var(--card-shadow);
+}
+
+/* مربع أيقونة الخدمة */
+.service-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}
+
+/* لون أيقونة أزرق سماوي */
+.icon-blue {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--primary-cyan);
+}
+
+/* لون أيقونة ذهبي */
+.icon-gold {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--primary-gold);
+}
+
+/* عنوان الخدمة */
+.service-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* وصف الخدمة */
+.service-card p {
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+/* حدود ذهبية لكارت الخدمة الأكثر طلباً */
+.popular-service {
+    border-color: var(--primary-gold);
+}
+
+/* الشارة الأساسية "الأكثر طلباً" (ذهبية) */
+.popular-badge {
+    position: absolute;
+    background: var(--primary-gold);
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* الشارة في كارت الخدمة: شريط مائل في الركن */
+.service-card .popular-badge {
+    top: 16px;
+    right: -34px;
+    padding: 4px 36px;
+    transform: rotate(45deg);
+}
+
+/* ========================================================== */
+/* 10. قسم الباقات (Pricing)                                   */
+/* ========================================================== */
+
+/* قسم الباقات والأسعار */
+.pricing-section {
+    padding: 100px 0;
+    background-color: var(--bg-main);
+}
+
+/* شبكة الباقات: 3 أعمدة */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: center;
+}
+
+/* كارت الباقة */
+.pricing-card {
+    position: relative;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+/* كارت الباقة عند المرور: حدود سماوية وظل */
+.pricing-card:hover {
+    border-color: var(--primary-cyan);
+    box-shadow: var(--card-shadow);
+}
+
+/* اسم الباقة */
+.package-name {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* سعر الباقة */
+.package-price {
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+/* رمز العملة (ج.م) أصغر ولونه هادي */
+.package-price .currency {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 6px;
+    color: var(--text-muted);
+}
+
+/* وصف الباقة */
+.package-desc {
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+/* قائمة مميزات الباقة */
+.package-features {
+    list-style: none;
+    margin: 30px 0;
+    text-align: right;
+}
+
+/* ميزة واحدة: علامة صح + نص */
+.package-features li {
+    margin-bottom: 15px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* لون علامة الصح في مميزات الباقة */
+.package-features svg {
+    color: var(--primary-cyan);
+}
+
+/* الباقة المميزة: حدود ذهبية وأكبر شوية */
+.popular-package {
+    border: 2px solid var(--primary-gold);
+    transform: scale(1.05);
+}
+
+/* الباقة المميزة عند المرور: تفضل بحدود ذهبية */
+.popular-package:hover {
+    border-color: var(--primary-gold);
+}
+
+/* شارة الباقة المميزة: بادج في منتصف حافة الكارت العلوية */
+.pricing-card .popular-badge {
+    top: -14px;
+    right: 50%;
+    transform: translateX(50%);
+    padding: 4px 18px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+/* ========================================================== */
+/* 11. قسم من نحن (About)                                      */
+/* ========================================================== */
+
+/* قسم من نحن */
+.about-section {
+    padding: 100px 0;
+    background-color: var(--bg-sec);
+}
+
+/* تقسيم من نحن لعمودين: الصورة والنص */
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+/* حاوية صورة من نحن */
+.about-image-wrapper {
+    position: relative;
+    border-radius: 20px;
+}
+
+/* صورة من نحن بحواف دايرية وظل */
+.about-img {
+    width: 100%;
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--card-shadow);
+    object-fit: cover;
+}
+
+/* توهج سماوي ضبابي ورا الصورة */
+.glow-bg-about {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: rgba(56, 189, 248, 0.2);
+    filter: blur(80px);
+    z-index: 1;
+}
+
+/* بادج زجاجي "سنين الخبرة" فوق الصورة */
+.experience-glass-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    z-index: 3;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: var(--card-shadow);
+}
+
+/* دايرة أيقونة بادج الخبرة */
+.badge-icon {
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--primary-cyan);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* رقم سنين الخبرة */
+.badge-content .num {
+    display: block;
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--primary-gold);
+}
+
+/* نص "سنوات خبرة" */
+.badge-content .text {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* وصف من نحن: محاذاة للجنب */
+.about-desc {
+    text-align: right;
+    margin: 20px 0 30px;
+    max-width: none;
+}
+
+/* قائمة نقاط القوة تحت الوصف */
+.about-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* نقطة واحدة: أيقونة + نص */
+.about-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    color: var(--text-muted);
+    font-size: 16px;
+}
+
+/* النص الغامق في النقطة بلون النص الأساسي */
+.about-points strong {
+    color: var(--text-main);
+}
+
+/* مربع أخضر صغير لعلامة الصح */
+.point-icon {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+/* ========================================================== */
+/* 12. قسم آراء العملاء (Reviews)                              */
+/* ========================================================== */
+
+/* قسم آراء العملاء (overflow مخفي علشان السلايدر) */
+.reviews-section {
+    padding: 100px 0;
+    background-color: var(--bg-main);
+    overflow: hidden;
+}
+
+/* صف عنوان الآراء وأزرار السلايدر */
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* وصف الآراء بدون توسيط */
+.reviews-title-wrapper .section-desc {
+    margin: 0;
+}
+
+/* مجموعة زرارين السلايدر */
+.slider-controls {
+    display: flex;
+    gap: 10px;
+}
+
+/* زر دايري للسلايدر (سابق / تالي) */
+.slider-btn {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+/* زر السلايدر عند المرور: يتملي بالسماوي */
+.slider-btn:hover {
+    background: var(--primary-cyan);
+    border-color: var(--primary-cyan);
+    color: #fff;
+}
+
+/* شريط الكروت: سكرول أفقي بالتقاط على كل كارت وبدون شريط تمرير */
+.reviews-slider {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 5px 0 20px;
+    scrollbar-width: none;
+}
+
+/* إخفاء شريط التمرير في Chrome وSafari */
+.reviews-slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* كارت رأي العميل */
+.review-card {
+    flex: 0 0 min(350px, 85vw);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 30px;
+    border-radius: 16px;
+    scroll-snap-align: start;
+    transition: 0.3s;
+}
+
+/* كارت الرأي عند المرور: يرتفع وحدوده ذهبية */
+.review-card:hover {
+    border-color: var(--primary-gold);
+    transform: translateY(-5px);
+}
+
+/* نجوم التقييم */
+.stars {
+    color: var(--primary-gold);
+    margin-bottom: 15px;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+/* نص رأي العميل */
+.review-text {
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* صف بيانات العميل (صورة + اسم) */
+.client-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 15px;
+}
+
+/* دايرة بأول حرف من اسم العميل */
+.client-avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-cyan);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* اسم العميل */
+.client-name {
+    color: var(--text-main);
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+/* الخدمة اللي اتعمل عليها الرأي */
+.client-service {
+    color: var(--primary-cyan);
+    font-size: 13px;
+}
+
+/* ========================================================== */
+/* 13. قسم تواصل معنا (Contact)                                */
+/* ========================================================== */
+
+/* قسم تواصل معنا */
+.contact-section {
+    padding: 100px 0;
+    background-color: var(--bg-sec);
+}
+
+/* الحاوية الكبيرة: الفورم على جنب وبيانات التواصل على جنب */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+}
+
+/* صندوق الفورم */
+.contact-form-box {
+    background: var(--bg-main);
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--card-shadow);
+}
+
+/* عنوان الفورم */
+.form-header h3 {
+    font-size: 24px;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+/* وصف الفورم */
+.form-header p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* مجموعة الخانة (العنوان + الحقل + رسالة الخطأ) */
+.form-group {
+    margin-bottom: 18px;
+    text-align: right;
+}
+
+/* عنوان الخانة */
+.form-group label {
+    display: block;
+    color: var(--text-main);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+/* شكل كل حقول الفورم (نص، تليفون، قائمة، رسالة) */
+.booking-form input,
+.booking-form textarea,
+.booking-form select {
+    width: 100%;
+    background: var(--bg-sec);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* الحقل عند الكتابة فيه: حدود سماوية */
+.booking-form input:focus,
+.booking-form textarea:focus,
+.booking-form select:focus {
+    border-color: var(--primary-cyan);
+}
+
+/* لون النص الإرشادي داخل الحقول */
+.booking-form input::placeholder,
+.booking-form textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.8;
+}
+
+/* خانة الرسالة: ارتفاع ثابت وبدون تكبير يدوي */
+.booking-form textarea {
+    height: 110px;
+    resize: none;
+}
+
+/* حاوية القائمة المنسدلة علشان نحط السهم فوقها */
+.select-wrapper {
+    position: relative;
+}
+
+/* القائمة المنسدلة بدون شكل المتصفح الافتراضي */
+.booking-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding-left: 45px;
+}
+
+/* ألوان خيارات القائمة المنسدلة */
+.booking-form select option {
+    background: var(--bg-main);
+    color: var(--text-main);
+}
+
+/* سهم القائمة المنسدلة */
+.select-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+/* زر إرسال الطلب */
+.btn-submit {
+    width: 100%;
+    background: var(--primary-blue);
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 5px;
+}
+
+/* زر الإرسال عند المرور: سماوي ويرتفع شوية */
+.btn-submit:hover {
+    background: var(--primary-cyan);
+    transform: translateY(-2px);
+}
+
+/* خانة التليفون: الأرقام تتكتب من الشمال لليمين */
+.ltr-input {
+    direction: ltr;
+    text-align: right;
+}
+
+/* النص الإرشادي لخانة التليفون */
+.ltr-input::placeholder {
+    direction: rtl;
+}
+
+/* رسالة الخطأ تحت الخانة (مخفية افتراضياً) */
+.field-error {
+    display: none;
+    color: #ef4444;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 6px;
+}
+
+/* الخانة الغلط: حدود حمراء وهالة خفيفة */
+.form-group.invalid input,
+.form-group.invalid textarea,
+.form-group.invalid select {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+/* إظهار رسالة الخطأ لما الخانة تبقى غلط */
+.form-group.invalid .field-error {
+    display: block;
+}
+
+/* الخانة الصح: حدود خضراء */
+.form-group.valid input,
+.form-group.valid textarea,
+.form-group.valid select {
+    border-color: #22c55e;
+}
+
+/* زر الإرسال أثناء الإرسال: متعطل وباهت */
+.btn-submit:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+}
+
+/* سطر رسالة حالة الإرسال تحت الزر */
+.form-status {
+    margin-top: 14px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    min-height: 20px;
+}
+
+/* رسالة فشل الإرسال: أحمر */
+.form-status.error {
+    color: #ef4444;
+}
+
+/* رسالة نجاح الإرسال: أخضر */
+.form-status.success {
+    color: #22c55e;
+}
+
+/* لينك الإرسال بالإيميل داخل رسالة الخطأ */
+.form-status a {
+    color: var(--primary-cyan);
+}
+
+/* عمود بيانات التواصل */
+.contact-info-box {
+    display: flex;
+    flex-direction: column;
+}
+
+/* عنوان بيانات التواصل */
+.info-header h3 {
+    font-size: 24px;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+/* وصف بيانات التواصل */
+.info-header p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* قائمة كروت وسائل التواصل (كارت تحت كارت) */
+.contact-methods {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+/* كارت وسيلة تواصل واحدة */
+.method-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--bg-main);
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* كارت التواصل عند المرور: حدود سماوية وإزاحة خفيفة */
+.method-item:hover {
+    border-color: var(--primary-cyan);
+    transform: translateX(-5px);
+}
+
+/* مربع أيقونة وسيلة التواصل */
+.method-icon {
+    width: 45px;
+    height: 45px;
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--primary-cyan);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* ألوان أيقونة واتساب (أخضر) */
+.method-icon.whatsapp-icon {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+}
+
+/* ألوان أيقونة فيسبوك (أزرق) */
+.method-icon.facebook-icon {
+    background: rgba(24, 119, 242, 0.12);
+    color: #1877f2;
+}
+
+/* ألوان أيقونة تليجرام (أزرق فاتح) */
+.method-icon.telegram-icon {
+    background: rgba(38, 165, 228, 0.12);
+    color: #26a5e4;
+}
+
+/* كسر السطر لو النص طويل (زي الإيميل) */
+.method-text span {
+    overflow-wrap: anywhere;
+}
+
+/* اسم وسيلة التواصل */
+.method-text h4 {
+    color: var(--text-main);
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+
+/* قيمة وسيلة التواصل (رقم / إيميل): تتكتب من الشمال لليمين */
+.method-text span {
+    color: var(--text-muted);
+    font-size: 13px;
+    direction: ltr;
+    display: inline-block;
+}
+
+/* إطار الخريطة بحواف دايرية */
+.map-wrapper {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+}
+
+/* الخريطة بفلتر يتغير حسب الوضع (داكن / فاتح) */
+.dark-map {
+    display: block;
+    width: 100%;
+    height: 100%;
+    filter: var(--map-filter);
+    transition: filter 0.4s;
+}
+
+/* شريط نص "موقع المركز" فوق الخريطة */
+.map-overlay-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-main);
+    color: var(--text-main);
+    padding: 6px 15px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 700;
+    border: 1px solid var(--glass-border);
+    white-space: nowrap;
+}
+
+/* ========================================================== */
+/* 14. التذييل (Footer)                                        */
+/* ========================================================== */
+
+/* الفوتر */
+.main-footer {
+    background-color: var(--bg-footer);
+    padding: 60px 0 20px;
+    border-top: 1px solid var(--glass-border);
+}
+
+/* أعمدة الفوتر: النبذة + الروابط + الخدمات */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+/* لوجو الفوتر أكبر شوية من لوجو الناف بار */
+.footer-logo-img {
+    height: 60px;
+}
+
+/* رابط لوجو الفوتر */
+.footer-logo {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+/* عنوان عمود في الفوتر */
+.footer-col h4 {
+    margin-bottom: 12px;
+    color: var(--text-main);
+}
+
+/* نبذة الفوتر */
+.footer-desc {
+    color: var(--text-muted);
+    margin-top: 15px;
+    max-width: 360px;
+}
+
+/* قائمة روابط الفوتر بدون نقط */
+.footer-links {
+    list-style: none;
+}
+
+/* رابط في الفوتر */
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    line-height: 2;
+    transition: 0.3s;
+}
+
+/* رابط الفوتر عند المرور: سماوي */
+.footer-links a:hover {
+    color: var(--primary-cyan);
+}
+
+/* شريط حقوق النشر أسفل الفوتر */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 20px;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* صف أيقونات السوشيال في الفوتر */
+.social-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+/* زر أيقونة سوشيال مربع */
+.social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    transition: 0.3s;
+}
+
+/* حجم أيقونة السوشيال */
+.social-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* زر السوشيال عند المرور: يرتفع والأيقونة بيضا */
+.social-btn:hover {
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+/* فيسبوك عند المرور: خلفية زرقاء */
+.social-btn.facebook-icon:hover {
+    background: #1877f2;
+    border-color: #1877f2;
+}
+
+/* تليجرام عند المرور: خلفية زرقاء فاتحة */
+.social-btn.telegram-icon:hover {
+    background: #26a5e4;
+    border-color: #26a5e4;
+}
+
+/* واتساب عند المرور: خلفية خضراء */
+.social-btn.whatsapp-icon:hover {
+    background: #25D366;
+    border-color: #25D366;
+}
+
+/* الإيميل عند المرور: خلفية زرقاء */
+.social-btn.mail-icon:hover {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+/* ========================================================== */
+/* 15. الأزرار العائمة (Floating Actions)                      */
+/* ========================================================== */
+
+/* حاوية الأزرار العايمة ثابتة تحت الشاشة */
+.floating-actions {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999;
+}
+
+/* الزر العايم الدايري (أساس واتساب وزر الصعود) */
+.float-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* خلفية زر واتساب العايم */
+.float-whatsapp {
+    background-color: #25D366;
+}
+
+/* حجم أيقونة واتساب العايمة */
+.float-whatsapp svg {
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+}
+
+/* واتساب العايم عند المرور: أغمق ويكبر */
+.float-whatsapp:hover {
+    background-color: #128C7E;
+    transform: scale(1.1);
+}
+
+/* زر الصعود لأعلى: مخفي في الأول */
+.float-up {
+    background-color: var(--primary-blue);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* حجم سهم الصعود */
+.float-up svg {
+    width: 26px;
+    height: 26px;
+    stroke: #fff;
+}
+
+/* زر الصعود يظهر بعد النزول بالسكرول */
+.float-up.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* زر الصعود عند المرور: سماوي ويرتفع */
+.float-up:hover {
+    background-color: var(--primary-cyan);
+    transform: translateY(-5px);
+}
+
+/* ========================================================== */
+/* 16. الحركات (Keyframes)                                     */
+/* ========================================================== */
+
+/* حركة طفو صورة الهيرو (تطلع وتنزل) */
+@keyframes floatImg {
+    /* بداية ونهاية الحركة: الصورة في مكانها */
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    /* منتصف الحركة: الصورة ترتفع 15px */
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* ========================================================== */
+/* 17. تعديلات الاتجاه عند اللغة الإنجليزية (LTR)             */
+/* ========================================================== */
+
+/* النصوص المحاذية لليمين في العربي تبقى لليسار في الإنجليزي */
+[dir="ltr"] .form-group,
+[dir="ltr"] .package-features,
+[dir="ltr"] .about-desc,
+[dir="ltr"] .about-points {
+    text-align: left;
+}
+
+/* خانة التليفون محاذاة لليسار في الإنجليزي */
+[dir="ltr"] .ltr-input {
+    text-align: left;
+}
+
+/* النص الإرشادي لخانة التليفون في الإنجليزي */
+[dir="ltr"] .ltr-input::placeholder {
+    direction: ltr;
+}
+
+/* العملة قبل السعر في الإنجليزي (EGP 150) */
+[dir="ltr"] .package-price .currency {
+    margin-left: 0;
+    margin-right: 6px;
+}
+
+/* سهم القائمة ينتقل لليمين في الإنجليزي */
+[dir="ltr"] .select-icon {
+    left: auto;
+    right: 15px;
+}
+
+/* مسافة الحشو في القائمة تتبدل مع مكان السهم */
+[dir="ltr"] .booking-form select {
+    padding-left: 18px;
+    padding-right: 45px;
+}
+
+/* إزاحة كارت التواصل ناحية اليمين في الإنجليزي */
+[dir="ltr"] .method-item:hover {
+    transform: translateX(5px);
+}
+
+/* قلب أسهم السلايدر في الإنجليزي */
+[dir="ltr"] .slider-btn svg {
+    transform: scaleX(-1);
+}
+
+/* نص الرأي مائل في الإنجليزي */
+[dir="ltr"] .review-text {
+    font-style: italic;
+}
+
+/* الإنجليزي (LTR) على الشاشات حتى 991px */
+@media (max-width: 991px) {
+    /* وصف من نحن يرجع للتوسيط على الشاشات الصغيرة */
+    [dir="ltr"] .about-desc {
+        text-align: center;
+    }
+
+    /* كروت التواصل محاذاة لليسار */
+    [dir="ltr"] .method-item {
+        text-align: left;
+    }
+}
+
+/* ========================================================== */
+/* 18. التصميم المتجاوب (Responsive)                           */
+/* ========================================================== */
+
+/* التابلت والموبايل (حتى 991px) */
+@media (max-width: 991px) {
+    /* قائمة الموبايل: مخفية وتنزل تحت الناف بار كصندوق */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        position: absolute;
+        top: 100%;
+        left: 20px;
+        right: 20px;
+        margin-top: 8px;
+        background: var(--nav-bg);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid var(--glass-border);
+        box-shadow: var(--card-shadow);
+    }
+
+    /* إظهار القائمة عند الضغط على زر القائمة */
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* إظهار زر القائمة (الهامبرجر) */
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    /* تقليل مسافات الهيرو العلوية والسفلية */
+    .hero-section {
+        padding: 130px 0 80px;
+    }
+
+    /* الهيرو ومن نحن والتواصل: عمود واحد ونص في المنتصف */
+    .hero-container,
+    .about-container,
+    .contact-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    /* توسيط أزرار الهيرو */
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    /* توسيط صندوق الإحصائيات */
+    .hero-stats {
+        margin: 0 auto;
+    }
+
+    /* تحديد أقصى عرض لصورة الهيرو وتوسيطها */
+    .hero-image-wrapper {
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    /* الكارت العايم الأول يلزق في الحافة بدل ما يخرج بره الشاشة */
+    .float-card-1 {
+        right: 0;
+    }
+
+    /* الكارت العايم التاني يلزق في الحافة بدل ما يخرج بره الشاشة */
+    .float-card-2 {
+        left: 0;
+    }
+
+    /* تحديد أقصى عرض لصورة من نحن وتوسيطها */
+    .about-image-wrapper {
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    /* بادج الخبرة يتحرك لجوه الصورة */
+    .experience-glass-badge {
+        right: 10px;
+    }
+
+    /* وصف من نحن في المنتصف */
+    .about-desc {
+        text-align: center;
+    }
+
+    /* نقاط من نحن تفضل محاذاة لليمين */
+    .about-points {
+        text-align: right;
+    }
+
+    /* الباقات عمود واحد وبمسافة أكبر */
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+        gap: 40px;
+    }
+
+    /* الباقة المميزة بدون تكبير */
+    .popular-package {
+        transform: scale(1);
+    }
+
+    /* تقليل حشو حاوية التواصل */
+    .contact-container {
+        padding: 25px;
+    }
+
+    /* الفوتر عمود واحد ونص في المنتصف */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    /* توسيط نبذة الفوتر */
+    .footer-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* توسيط أيقونات السوشيال */
+    .social-links {
+        justify-content: center;
+    }
+
+    /* كروت التواصل محاذاة لليمين */
+    .method-item {
+        justify-content: flex-start;
+        text-align: right;
+    }
+}
+
+/* الموبايل الكبير (حتى 768px) */
+@media (max-width: 768px) {
+    /* تصغير العناوين على الموبايل */
+    .hero-title,
+    .section-title {
+        font-size: 32px;
+    }
+
+    /* تصغير وصف الهيرو */
+    .hero-desc {
+        font-size: 16px;
+    }
+
+    /* صندوق الإحصائيات عمود واحد بعرض كامل */
+    .hero-stats {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    /* الفاصل بين الإحصائيات يبقى خط أفقي */
+    .stat-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    /* تقليل المسافات الرأسية للأقسام */
+    .services-section,
+    .pricing-section,
+    .about-section,
+    .reviews-section,
+    .contact-section {
+        padding: 70px 0;
+    }
+
+    /* عنوان الآراء وأزرار السلايدر تحت بعض */
+    .reviews-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* تقليل حشو صندوق الفورم */
+    .contact-form-box {
+        padding: 22px;
+    }
+
+    /* تقريب الأزرار العايمة من الحافة */
+    .floating-actions {
+        right: 20px;
+        bottom: 20px;
+    }
+
+    /* تصغير الأزرار العايمة */
+    .float-btn {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* الموبايل الصغير (حتى 480px) */
+@media (max-width: 480px) {
+    /* إخفاء زر "احجز الآن" من الناف بار علشان المساحة */
+    .nav-actions .btn-primary-outline {
+        display: none;
+    }
+
+    /* تصغير اللوجو */
+    .logo-img {
+        height: 40px;
+    }
+
+    /* تقليل حشو الحاوية الجانبي */
+    .container {
+        padding: 0 16px;
+    }
+
+    /* أزرار الهيرو تتمدد لتملا الصف */
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-secondary {
+        flex: 1 1 auto;
+    }
+
+    /* تصغير الكروت الزجاجية العايمة */
+    .glass-card {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    /* رفع الكارت العايم الأول لحافة الصورة */
+    .float-card-1 {
+        top: 4%;
+    }
+
+    /* رفع الكارت العايم التاني لحافة الصورة */
+    .float-card-2 {
+        bottom: 4%;
+    }
+}
+
+/* تقليل الحركة لمن فعّل الإعداد ده في جهازه */
+@media (prefers-reduced-motion: reduce) {
+    /* إيقاف التمرير الناعم */
+    html {
+        scroll-behavior: auto;
+    }
+
+    /* إيقاف حركة طفو صورة الهيرو */
+    .hero-image-wrapper {
+        animation: none;
+    }
+
+    /* إظهار العناصر فوراً بدون تأثير ظهور */
+    .js .reveal {
+        transition: none;
+        opacity: 1;
+        translate: 0 0;
+    }
+}
